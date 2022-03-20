@@ -152,4 +152,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    public function wishlistCart()
+    {
+        return $this->carts->filter(function (Cart $cart){
+            return $cart->getByType('wish-list');
+        })->first();
+    }
+    public function orderCart()
+    {
+        return $this->carts->filter(function (Cart $cart){
+            return $cart->getByType('order');
+        })->first();
+    }
+
+
 }

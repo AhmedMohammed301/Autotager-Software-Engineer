@@ -2,55 +2,71 @@
 {% block title %}{% endblock %}
 {% block body %}
     <div class="container">
+        <br><br>
+        <div class="row">
+            <div class="col-6">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        Products
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="{{ path('product_type',{type:'normal'}) }}">Normal
+                                Product</a></li>
+                        <li><a class="dropdown-item" href="{{ path('product_type',{type:'sale'}) }}">Sale Product</a>
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-6">
+                <a  href="{{ path('empty_cart',{id:cart.id}) }}" class="btn btn-danger">
+                    Empty Cart
+                </a>
+            </div>
+        </div>
         <div class="row">
 
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Products
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item"  href="{{ path('product_type',{type:'normal'}) }}">Normal Product</a></li>
-                    <li><a class="dropdown-item"  href="{{ path('product_type',{type:'sale'}) }}">Sale Product</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </div>
-            <div class="login-form bg-light mt-4 p-4">
-                <div class="col-12">
-                    <table class="table table-container">
-                        <thead>
-                        <tr>
-                            <th>id</th>
-                            <th>name</th>
-                            <th>quantity</th>
-                            <th>price</th>
-                            <th>add to cart</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for cart in carts %}
+
+            <div class="col-12">
+                <div class="login-form bg-light mt-4 p-4">
+                    <div class="col-12">
+                        <table class="table table-container">
+                            <thead>
                             <tr>
-                                <td> {{ cart.id}} </td>
-                                <td> {{ cart.name}} </td>
-                                <td> {{ cart.getTotalPrice}} </td>
-                                <td> {{ cart.getProductCount}} </td>
-                                <td>
-                                    <button class="btn btn-primary">
-                                        add to wish-list cart
-                                    </button>
-                                    <button class="btn btn-success">
-                                        add to order cart
-                                    </button>
-                                </td>
-
+                                <th>id</th>
+                                <th>name</th>
+                                <th>quantity</th>
+                                <th>price</th>
+                                <th>delete</th>
                             </tr>
+                            </thead>
+                            <tbody>
+                            {% for product in products %}
+                                <tr>
+                                    <td> {{ product.id }} </td>
+                                    <td> {{ product.product.name }} </td>
+                                    <td> {{ product.product.price }} </td>
+                                    <td> {{ product.amount }} </td>
+                                    <td>
+                                        <a href="{{ path('delete_product_to_cart',{cart:cart.id,product:product.product.id }) }}"
+                                           class="btn btn-warning">
+                                            delete
+                                        </a>
 
-                        {% endfor %}
+                                    </td>
 
-                        </tbody>
-                    </table>
+                                </tr>
+
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
-
             </div>
+
 
         </div>
     </div>

@@ -4,6 +4,8 @@ namespace App\Entity\Products;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ProductRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -27,6 +29,10 @@ class Product
 
     #[ORM\Column(type: 'integer')]
     protected $amount;
+
+    public function __construct()
+    {
+    }
 
 
 
@@ -70,6 +76,4 @@ class Product
 
         return $this;
     }
-
-
 }

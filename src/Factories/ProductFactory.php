@@ -1,5 +1,5 @@
 <?php
-namespace App\Factory;
+namespace App\Factories;
 
 use Symfony\Component\Config\Definition\Exception\Exception;
 

@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Factory\ProductFactory;
+use App\Factories\ProductFactory;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

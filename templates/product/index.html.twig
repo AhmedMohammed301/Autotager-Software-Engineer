@@ -34,12 +34,14 @@
                                 <td> {{ product.amount}} </td>
                                 <td> {{ product.price}} </td>
                                 <td>
-                                    <button class="btn btn-primary">
-                                        add to wish-list cart
-                                    </button>
-                                    <button class="btn btn-success">
+
+                                    <a href="{{ path('add_product_to_cart',{cart:app.user.orderCart.id,product:product.id }) }}" class="btn btn-primary">
+
                                         add to order cart
-                                    </button>
+                                    </a>
+                                    <a href="{{ path('add_product_to_cart',{cart:app.user.wishlistCart.id,product:product.id }) }}" class="btn btn-success">
+                                        add to wish-list cart
+                                    </a>
                                 </td>
 
                             </tr>

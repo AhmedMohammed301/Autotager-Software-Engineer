@@ -17,7 +17,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light px-1">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ path('home') }}">
+        <a class="navbar-brand" href="{{ path('product_type',{type:'normal'}) }}">
             <p class="pl-2 d-inline font-weight-bold" style="color: #444;">
                  Shopping Cart</p>
         </a>
@@ -28,9 +28,13 @@
             </ul>
             {% if app.user %}
 
+                {% if app.user.orderCart %}
+                    <a href="{{ path('app_cart',{'name':app.user.orderCart.name}) }}" class="btn btn-outline-primary"> Order Cart ( {{ app.user.orderCart.getTotalAmount }} )</a>
+                {% endif %}
 
-                <a href="" class="btn btn-outline-primary"> Cart ( 5 )</a>
-
+                {% if app.user.wishlistCart %}
+                        <a href="{{ path('app_cart',{'name':app.user.wishlistCart.name}) }}" class="btn btn-outline-primary"> WishList Cart ( {{ app.user.wishlistCart.getTotalAmount }} )</a>
+                 {% endif %}
             {% else %}
                 <a href="{{ path('app_login') }}" class="btn btn-outline-primary">Login</a>
             {% endif %}

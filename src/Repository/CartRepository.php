@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\SaleProduct;
+use App\Entity\Carts\Cart;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method SaleProduct|null find($id, $lockMode = null, $lockVersion = null)
- * @method SaleProduct|null findOneBy(array $criteria, array $orderBy = null)
- * @method SaleProduct[]    findAll()
- * @method SaleProduct[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Cart|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Cart|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Cart[]    findAll()
+ * @method Cart[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SaleProductRepository extends ServiceEntityRepository
+class CartRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, SaleProduct::class);
+        parent::__construct($registry, Cart::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(SaleProduct $entity, bool $flush = true): void
+    public function add(Cart $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class SaleProductRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(SaleProduct $entity, bool $flush = true): void
+    public function remove(Cart $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,15 +46,15 @@ class SaleProductRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return SaleProduct[] Returns an array of SaleProduct objects
+    //  * @return Carts[] Returns an array of Carts objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
+            ->orderBy('c.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -63,10 +63,10 @@ class SaleProductRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?SaleProduct
+    public function findOneBySomeField($value): ?Carts
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

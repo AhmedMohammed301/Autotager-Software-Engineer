@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %} {{ type }}{% endblock %}
+{% block title %}{% endblock %}
 {% block body %}
     <div class="container">
         <div class="row">
@@ -27,12 +27,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for product in products %}
+                        {% for cart in carts %}
                             <tr>
-                                <td> {{ product.id}} </td>
-                                <td> {{ product.name}} </td>
-                                <td> {{ product.amount}} </td>
-                                <td> {{ product.price}} </td>
+                                <td> {{ cart.id}} </td>
+                                <td> {{ cart.name}} </td>
+                                <td> {{ cart.getTotalPrice}} </td>
+                                <td> {{ cart.getProductCount}} </td>
                                 <td>
                                     <button class="btn btn-primary">
                                         add to wish-list cart

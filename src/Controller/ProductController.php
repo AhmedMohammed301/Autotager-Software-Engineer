@@ -3,11 +3,7 @@
 namespace App\Controller;
 
 use App\Factory\ProductFactory;
-use Symfony\Component\Config\Definition\Exception\Exception;
-use App\Entity\Product;
-use App\Entity\SaleProduct;
 use Doctrine\ORM\EntityManagerInterface;
-use phpDocumentor\Reflection\DocBlock\Tags\Throws;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

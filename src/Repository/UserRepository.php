@@ -36,6 +36,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         }
     }
 
+
     /**
      * @throws ORMException
      * @throws OptimisticLockException

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ type }}{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Products
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item"  href="{{ path('product_type',{type:'normal'}) }}">Normal Product</a></li>
+                    <li><a class="dropdown-item"  href="{{ path('product_type',{type:'sale'}) }}">Sale Product</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+            <div class="login-form bg-light mt-4 p-4">
+                <div class="col-12">
+                    <table class="table table-container">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>quantity</th>
+                            <th>price</th>
+                            <th>add to cart</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for product in products %}
+                            <tr>
+                                <td> {{ product.id}} </td>
+                                <td> {{ product.name}} </td>
+                                <td> {{ product.amount}} </td>
+                                <td> {{ product.price}} </td>
+                                <td>
+                                    <button class="btn btn-primary">
+                                        add to cart
+                                    </button>
+                                </td>
+
+                            </tr>
+
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

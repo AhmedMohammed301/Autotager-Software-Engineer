@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CartRepository::class)]
 #[ApiResource]
-class Cart
+abstract class Cart
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

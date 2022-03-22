@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 #[ApiResource]
-class Product
+abstract class Product
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
